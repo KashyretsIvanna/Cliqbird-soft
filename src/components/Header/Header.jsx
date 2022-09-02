@@ -11,7 +11,7 @@ export default function Header(props) {
         <input type={'checkbox'} onChange={()=>{witchDispay==='cover'? setWitchDisplay('question'):setWitchDisplay('cover')}} />
         <p>Q</p>
         </div>
-        <h1>CLIQBIRD SCRIPT</h1>
+        <h1><span>CLIQBIRD</span> SCRIPT</h1>
         </div>
     </header>
   )
