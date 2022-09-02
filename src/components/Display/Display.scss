@@ -1,15 +1,19 @@
 .display {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
+  overflow: auto;
 }
-
-
 
 .left {
   width: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.left::-webkit-scrollbar {
+  width: 0px;
 }
