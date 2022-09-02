@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+
+.input {
+  background-color: #ccee45;
+  border: 3px solid black;
+  width: 20vw;
+  height: 40px;
+  margin-bottom: 30px;
+  font-family: 'Bangers', cursive;
+}
+
+.input::placeholder{
+    color: black;
+    font-size: 25px;
+}
+
+
