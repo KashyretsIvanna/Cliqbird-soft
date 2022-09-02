@@ -4,4 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(./backgraund.jpg);
+  background-size: cover;
 }

@@ -1,0 +1,75 @@
+@import "../../index.scss";
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+header {
+    width: 100%;
+    padding: 35px 50px;
+    text-align: left;
+    font-family: 'Bangers', cursive;
+    position: relative;
+}
+
+header h1 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    color: #f2d135;
+}
+
+span {
+  font-size: 50px;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #d75f03 33%, #e3d006 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0B2349;
+}
+
+.header-container {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+}
+
+.switch p {
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+input[type='checkbox'] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  outline: none;
+  background: #938F8F;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+input:checked[type='checkbox'] {
+  background: #938F8F;
+}
+
+input[type='checkbox']:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: scale(1.1);
+  border-radius: 50%;
+  border: 1px solid black;
+  background: #ED4730;
+  transition: 0.4s;
+  top: 0px;
+  left: 0px;
+}
+
+input:checked[type='checkbox']:before {
+  left: 20px;
+  background: #ED4730;
+}
