@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .DisplayQuestion {
-    width: 70%;
+    max-width: 1040px;
     min-height: 500px;
     background-color: #858585;
     margin: 60px auto;
@@ -57,9 +57,15 @@
 
 .question-list {
     width: 320px;
+    height:250px;
     background: #39A182;
     border: 2px solid #000000;
     border-radius: 4px;
+    overflow: scroll;
+}
+
+.question-list::-webkit-scrollbar {
+    display: none;
 }
 
 .question-list ul {

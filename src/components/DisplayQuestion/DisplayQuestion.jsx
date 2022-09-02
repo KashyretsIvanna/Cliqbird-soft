@@ -31,6 +31,10 @@ export default function DisplayQuestion() {
         }
 })
 
+  const searchButton = ()=>{
+    setFilterData(data)
+  }
+
 
      
    return (
@@ -41,13 +45,13 @@ export default function DisplayQuestion() {
          {/* input + list  */}
          <div className='question-search'>
             <input type="text" placeholder='Banal customer questions' onChange={event=>setQues(event.target.value)} />
-            <button><img src={logoSearch} alt="" /></button>
+            <button onClick={searchButton}><img src={logoSearch} alt="" /></button>
          </div>
 
          {isWright===true?
          <div className='question-list'>
          <ul>
-             {filterData.map(e=>{return <li onClick={()=>{console.log(setChoice(e))}}>{e}</li>})}
+             {filterData.map(e=>{return <li onClick={()=>{setChoice(e)}}>{e}</li>})}
          </ul>
       </div>
       :
@@ -57,9 +61,11 @@ export default function DisplayQuestion() {
     <div className='right-side-container'>
             {/* window + button */}    
         <div className='question-window'>{choice}</div>
-        <div className='button-container'><div className='button-text'>COPY TEXT</div></div>
+        <div className='button-container' onClick={(event)=>{
+            navigator.clipboard.writeText(choice)
+        }}><div className='button-text'>COPY TEXT</div></div>
     </div>
     </div>
-    
+
   )
 }

@@ -11,6 +11,16 @@ header {
 header h1 {
     font-size: 50px;
     letter-spacing: 3px;
+    color: #f2d135;
+}
+
+span {
+  font-size: 50px;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #d75f03 33%, #e3d006 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0B2349;
 }
 
 .header-container {
