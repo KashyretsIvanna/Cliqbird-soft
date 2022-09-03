@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 .display {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  overflow: auto;
+  height: 75vh;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .left {
@@ -11,9 +15,143 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: hidden;
+  justify-content: space-between;
+  height: 100%;
+  overflow: auto;
 }
 
 .left::-webkit-scrollbar {
+  width: 1px;
+}
+
+.select {
+  width: 20vw;
+  height: 30px;
+  position: relative;
+}
+
+.part {
+  margin-bottom: 85px;
+  position: relative;
+}
+
+.select_field {
+  background-color: #ccee45;
+  border: 3px solid black;
+  width: 100%;
+  height: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+  color: black;
+  font-size: 20px;
+  font-family: 'Bangers', cursive;
+}
+
+.select_button {
+  position: absolute;
+  background-color: rgba(0, 0, 139, 0);
+  width: 15px;
+  height: 100%;
+  background-image: url(../Display/logo-search.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  right: 5px;
+  border: none;
+  outline: none;
+  top: 0px;
+}
+
+.option_container {
+  display: inline-block;
+  // background-color: #ccee45;
+  width: 200px;
+  padding: 3px;
+  font-family: 'Gabriela';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 27px;
+  position: absolute;
+  list-style: none;
+  text-align: center;
+  z-index: 1;
+  top: 30px;
+  right: 0px;
+  overflow: auto;
+  height: 80px;
+}
+
+.option_container::-webkit-scrollbar {
+  width: 1px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.option {
+  height: 20px;
+  background-color: #ccee45;
+}
+
+.option:hover {
+  font-weight: bold;
+}
+
+.option_container-visible {
+  opacity: 1;
+}
+
+.select_textarea {
+  background-color: #ccee45;
+  border: 3px solid black;
+  width: 20vw;
+  height: 50px;
+  color: black;
+  font-size: 20px;
+  font-family: 'Bangers', cursive;
+  overflow: auto;
+}
+
+.select_textarea::-webkit-scrollbar {
   width: 0px;
+}
+
+.select_field::placeholder,
+.select_textarea::placeholder {
+  color: black;
+  font-size: 20px;
+  font-family: 'Bangers', cursive;
+}
+
+.cross {
+  background-color: rgba(240, 248, 255, 0);
+  background-image: url(../Display/red-cross-svgrepo-com.svg);
+  background-position: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: none;
+  right: -22vw;
+  top: -40px;
+}
+
+.select .cross {
+  right: -22vw;
+  top: -30px;
+}
+
+.text_container {
+  width: 20vw;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.heyStart {
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-family: 'Bangers', cursive;
+  display: inline;
+  left: 10px;
+  top: 5px;
 }
