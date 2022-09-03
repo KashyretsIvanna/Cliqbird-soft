@@ -57,17 +57,7 @@ export default function DisplayQuestion() {
         {isWright === true ? (
           <div className="question-list">
             <ul>
-              {filterData.map((e) => {
-                return (
-                  <li
-                    onClick={() => {
-                      setChoice(e)
-                    }}
-                  >
-                    {e}
-                  </li>
-                )
-              })}
+              {filterData.map((e) => {return (<li onClick={()=>{ setChoice(e)}}>{e}</li>)})}
             </ul>
           </div>
         ) : null}
@@ -75,15 +65,13 @@ export default function DisplayQuestion() {
       <div className="right-side-container">
         {/* window + button */}
         <div className="question-window">{choice}</div>
-        <div
-          className="button-container"
-          onClick={(event) => {
-            navigator.clipboard.writeText(choice)
-          }}
-        >
+        <div className="button-container" onClick={(event)=>{navigator.clipboard.writeText(choice)}}>
+
           <div className="button-text">COPY TEXT</div>
         </div>
       </div>
     </div>
   )
 }
+
+
