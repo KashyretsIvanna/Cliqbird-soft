@@ -16,8 +16,8 @@ const Button = (props) => {
 
   return (
     <CopyToClipboard text={getAllText()}>
-      <div className="button-container">
-        <div className="button-text">COPY TEXT</div>
+      <div className="button-cont">
+        <div className="button-t">COPY TEXT</div>
       </div>
     </CopyToClipboard>
   )

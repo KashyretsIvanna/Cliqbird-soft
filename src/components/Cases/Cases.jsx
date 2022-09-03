@@ -10,6 +10,8 @@ const Cases = (props) => {
     '5.Web Design',
   ]
 
+  
+
   const caseHandler = (e) => {
     setCase((state) => [
       ...state.slice(0, index),
