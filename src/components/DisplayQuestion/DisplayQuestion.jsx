@@ -63,7 +63,8 @@ export default function DisplayQuestion() {
         <div className='question-window'>{choice}</div>
         <div className='button-container' onClick={(event)=>{
             navigator.clipboard.writeText(choice)
-        }}><div className='button-text'>COPY TEXT</div></div>
+        }}><div className='button-text'>COPY TEXT</div>
+        </div>
     </div>
     </div>
 
