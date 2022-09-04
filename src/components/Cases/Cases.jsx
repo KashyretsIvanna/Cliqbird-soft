@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import '../Cases/Cases.jsx'
 const Cases = (props) => {
-  const { cases, setCase, index } = props
+  const { cases, setCase, index } = props;
   const options_cases = [
     '1.Digital M.',
     '2.Ecommrse',
@@ -9,8 +9,6 @@ const Cases = (props) => {
     '4.SasS(Adapty)',
     '5.Web Design',
   ]
-
-  
 
   const caseHandler = (e) => {
     setCase((state) => [

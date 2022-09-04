@@ -36,7 +36,7 @@ const Display = () => {
                 type="text"
                 className="select_field"
               />
-              <div className='heyStart'>Hey!</div>
+              <div className="heyStart">Hey!</div>
               <button className="select_button" />
             </div>
             {country.trim() !== '' && (
@@ -120,10 +120,11 @@ const Display = () => {
           cases={cases}
           country={country}
         />
-        <Button country={country}  reference={copyText} />
+        <Button country={country} reference={copyText} />
       </div>
     </>
   )
 }
 
 export default Display
+
