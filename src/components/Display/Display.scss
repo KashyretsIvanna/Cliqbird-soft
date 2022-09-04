@@ -70,7 +70,7 @@
   font-family: 'Gabriela';
   font-style: normal;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 27px;
   position: absolute;
   list-style: none;
@@ -95,6 +95,7 @@
 
 .option:hover {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .option_container-visible {
