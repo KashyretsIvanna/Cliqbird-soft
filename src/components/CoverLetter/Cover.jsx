@@ -2,7 +2,7 @@ import '../CoverLetter/Cover.scss'
 import { nanoid } from 'nanoid'
 
 const Cover = (props) => {
-  const { country, textarea, copyText } = props
+  const { country, textarea, copyText, name } = props
   return (
     <div className="cover" ref={copyText}>
       <div className="hey">Hey!{country}</div>
@@ -14,6 +14,9 @@ const Cover = (props) => {
           {el}
         </div>
       ))}
+      <div className='goodbye'>
+        <p>Speak soon,<br />{name}</p>
+      </div>
     </div>
   )
 }
