@@ -2,15 +2,16 @@
 
 .DisplayQuestion {
   max-width: 1040px;
-  min-height: 50vh;
+  height: 40vh;
   background-color: #858585;
   margin: 60px auto;
   border-radius: 24px;
-  padding: 75px;
+  padding: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   border: 5px solid black;
+  flex-wrap: wrap;
 }
 
 .question-search {
@@ -109,7 +110,7 @@
   text-align: center;
   transform: skewX(-45deg);
   cursor: pointer;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .button-text {
@@ -131,4 +132,97 @@
 
 .button-container:hover {
   box-shadow: inset 0px 0px 10px red;
+}
+
+.left-side-container {
+  margin-right: 30px;
+}
+
+
+@media (max-width: 1200px) {
+  .question-window {
+    width: 320px;
+    min-height: 160px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .DisplayQuestion {
+    max-width: 1040px;
+    min-height: 650px;
+    background-color: #858585;
+    margin: 60px auto;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 5px solid black;
+    flex-wrap: wrap;
+  }
+
+  .question-search {
+    width: 320px;
+    height: 50px;
+    background-color: #39a182;
+    border-radius: 18px;
+    border: 2px solid #000000;
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: 490px) {
+  .question-window {
+    width: 250px;
+    min-height: 160px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .DisplayQuestion {
+    max-width: 1040px;
+    min-height: 650px;
+    background-color: #858585;
+    margin: 60px auto;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 5px solid black;
+    flex-wrap: wrap;
+    overflow: scroll;
+  }
+
+  .question-search {
+    width: 250px;
+    height: 50px;
+    background-color: #39a182;
+    border-radius: 18px;
+    border: 2px solid #000000;
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .button-container {
+    background-color: #000000;
+    width: 180px;
+    height: 65px;
+    text-align: center;
+    transform: skewX(-45deg);
+    cursor: pointer;
+    margin: 10px auto;
+  }
+
+  .question-list {
+    width: 250px;
+    height: 250px;
+    background: #39a182;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    overflow: scroll;
+  }
+
 }

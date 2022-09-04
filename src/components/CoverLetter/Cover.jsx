@@ -33,4 +33,3 @@ const Cover = (props) => {
 
 export default Cover
 
-
