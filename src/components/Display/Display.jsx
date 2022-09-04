@@ -1,6 +1,6 @@
 import '../Display/Display.scss'
 import Cover from '../CoverLetter/Cover'
-import { useRef, useState } from 'react'
+import { useRef, useState,  useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import Textarea from '../Textarea/Textarea'
 import Cases from '../Cases/Cases'
@@ -13,12 +13,25 @@ const Display = () => {
     '3.Outreach',
     '4.Full Package',
   ]
+
+  const [dataCases, setDataCases] = useState([])
+  const [dataFlow, setDataFlow] = useState([])
   const [country, setCountry] = useState('')
   const [cases, setCase] = useState([''])
   const [flow, setFlow] = useState('')
   const [name, setName] = useState('')
   const [textarea, setTextarea] = useState(['', ''])
   const copyText = useRef()
+
+   useEffect(()=>{
+     fetch('../../../cases.json').then(response=>response.json()).then(data=>setDataCases(data))
+   },[])
+
+   useEffect(()=>{
+    fetch('../../../flow.json').then(response=>response.json()).then(data=>setDataFlow(data))
+  },[])
+
+
 
   return (
     <>
@@ -70,6 +83,7 @@ const Display = () => {
           {cases.map((el, index) => (
             <Cases key={index} index={index} cases={cases} setCase={setCase} />
           ))}
+
 
           {/* Standard flow based on customer */}
           <div className="part">

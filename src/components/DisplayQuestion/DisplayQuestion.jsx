@@ -81,7 +81,7 @@ export default function DisplayQuestion() {
             navigator.clipboard.writeText(choice)
           }}
         >
-          <div className="button-text">COPY TEXT</div>
+          <div className="button-text">COPY TEXT</div>  
         </div>
       </div>
     </div>
