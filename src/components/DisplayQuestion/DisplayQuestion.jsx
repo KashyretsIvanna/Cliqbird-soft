@@ -6,9 +6,10 @@ import { useState, useEffect } from 'react'
 export default function DisplayQuestion() {
   const [data, setData] = useState([])
   const [ques, setQues] = useState('')
-  const [filterData, setFilterData] = useState([])
+  const [filterData, setFilterData] = useState([{}])
   const [isWright, setIsWright] = useState(false)
   const [choice, setChoice] = useState('')
+  
 
   useEffect(() => {
     fetch('../../../question.json')
@@ -20,7 +21,7 @@ export default function DisplayQuestion() {
 
   useEffect(() => {
     const array = data.filter((e) => {
-      return e.toLowerCase().includes(ques.toLowerCase())
+      return (e.question.toLowerCase()).includes(ques.toLowerCase())
     })
     setFilterData(array)
   }, [ques])
@@ -60,11 +61,12 @@ export default function DisplayQuestion() {
               {filterData.map((e) => {
                 return (
                   <li
+                  key={e.answer}
                     onClick={() => {
-                      setChoice(e)
+                      setChoice(e.answer)
                     }}
                   >
-                    {e}
+                    {e.question}
                   </li>
                 )
               })}
