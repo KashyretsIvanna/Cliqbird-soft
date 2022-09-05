@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import '../Cases/Cases.jsx'
 const Cases = (props) => {
-  const { cases, setCase, index, dataCases } = props
+  const { cases, setCase, index, dataCases,isOpen,setIsOpen } = props
 
   const caseHandler = (e) => {
     setCase((state) => [
@@ -15,7 +15,10 @@ const Cases = (props) => {
     <div className="part">
       <div className="select">
         <input
-          onChange={(e) => caseHandler(e)}
+          onChange={(e) => {
+            caseHandler(e)
+            setIsOpen(true)
+          }}
           placeholder="Company cases"
           type="text"
           className="select_field"
@@ -31,7 +34,8 @@ const Cases = (props) => {
           ></button>
         )}
       </div>
-      {cases[index].trim() !== '' && (
+      {isOpen === true?
+       cases[index].trim() !== '' && (
         <ul className="option_container">
           {dataCases
             .filter((el) =>
@@ -40,11 +44,12 @@ const Cases = (props) => {
             .map((el, ind) => (
               <li
                 onClick={() =>
-                  setCase((state) => [
+                  {setIsOpen(false)
+                    setCase((state) => [
                     ...state.slice(0, index),
                     el.name,
                     ...state.slice(index + 1, state.length),
-                  ])
+                  ])}
                 }
                 className="option"
                 key={nanoid()}
@@ -53,7 +58,9 @@ const Cases = (props) => {
               </li>
             ))}
         </ul>
-      )}
+      )
+      :null
+    }
     </div>
   )
 }

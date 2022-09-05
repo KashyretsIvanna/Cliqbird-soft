@@ -19,8 +19,8 @@ const Button = (props) => {
     ${firstFlow}` +
     data.map((el) => `
 
-    ${el.url}`+`
-    ${el.text}`)+
+    ${el.text}`+`
+    ${el.url}`)+
     `
     
     ${secondFlow}`+

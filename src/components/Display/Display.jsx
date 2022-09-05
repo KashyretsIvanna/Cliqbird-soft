@@ -15,6 +15,7 @@ const Display = () => {
   const [name, setName] = useState('')
   const [textarea, setTextarea] = useState([''])
   const [flowArray, setFlowArray] = useState([])
+  const [isOpen, setIsOpen] = useState(true)
 
   useEffect(() => {
     for (let i = 0; i < cases.length; i++) {
@@ -37,7 +38,9 @@ const Display = () => {
       .then((response) => response.json())
       .then((data) => setDataFlow(data))
   }, [])
-  console.log(cases)
+
+
+
 
   return (
     <>
@@ -50,6 +53,7 @@ const Display = () => {
                 value={country}
                 onChange={(e) => {
                   setCountry(e.target.value)
+                  setIsOpen(true)
                 }}
                 type="text"
                 className="select_field"
@@ -57,7 +61,8 @@ const Display = () => {
               <div className="heyStart">Hey!</div>
               <button className="select_button" />
             </div>
-            {country.trim() !== '' && (
+            {isOpen === true?
+             country.trim() !== '' && (
               <ul className="option_container">
                 {options_hey
                   .filter((el) =>
@@ -65,7 +70,10 @@ const Display = () => {
                   )
                   .map((el) => (
                     <li
-                      onClick={() => setCountry(el)}
+                      onClick={() => {
+                        setIsOpen(false)
+                        setCountry(el)
+                      }}
                       className="option"
                       key={nanoid()}
                     >
@@ -73,7 +81,9 @@ const Display = () => {
                     </li>
                   ))}
               </ul>
-            )}
+            )
+          :null}
+           
           </div>
           {/* Text area */}
           {textarea.map((el, index) => (
@@ -93,6 +103,8 @@ const Display = () => {
               cases={cases}
               setCase={setCase}
               el={el}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
             />
           ))}
 
@@ -103,11 +115,15 @@ const Display = () => {
                 placeholder="Standard flow based on customer"
                 type="text"
                 className="select_field"
-                onChange={(e) => setFlow(e.target.value)}
+                onChange={(e) =>{
+                  setFlow(e.target.value)
+                  setIsOpen(true)
+                } }
                 value={flow}
               />
             </div>
-            {flow.trim() !== '' && (
+            {isOpen === true?
+             flow.trim() !== '' && (
               <ul className="option_container">
                 {dataFlow
                   .filter((el) =>
@@ -115,7 +131,10 @@ const Display = () => {
                   )
                   .map((el, index) => (
                     <li
-                      onClick={() => setFlow(el.name)}
+                      onClick={() =>{
+                        setFlow(el.name)
+                        setIsOpen(false)
+                      }}
                       className="option"
                       key={nanoid()}
                     >
@@ -123,7 +142,10 @@ const Display = () => {
                     </li>
                   ))}
               </ul>
-            )}
+            ):
+            null
+            }
+           
           </div>
           {/* name */}
           <div className="part">
