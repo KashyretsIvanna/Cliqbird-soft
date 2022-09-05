@@ -18,7 +18,7 @@ const Cover = (props) => {
       <br />
       {data.map((el) => (
         <div key={nanoid()}>
-          <p>{el.url}</p> <br />
+          <p className='url'>{el.url}</p> <br />
           <p>{el.text}</p>
           <br />
           <br />
