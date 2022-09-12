@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid'
 import Textarea from '../Textarea/Textarea'
 import Cases from '../Cases/Cases'
 import Button from '../Button/Button'
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+polyfillCountryFlagEmojis();
 const Display = () => {
   const options_hey = ['Us', 'Ca', 'Au', 'NL']
   const [dataCases, setDataCases] = useState([])
@@ -199,3 +201,34 @@ const Display = () => {
 }
 
 export default Display
+
+const FranceFR = '\u{1F1EB}\u{1F1F7}'
+const SpainES =  '\u{1F1EA}\u{1F1F8}'
+const UnitedStatesUS = '\u{1F1FA}\u{1F1F8}'
+const ChinaCN = '\u{1F1E8}\u{1F1F3}'
+const ItalyIT = '\u{1F1EE}\u{1F1F9}'
+const MexicoMX = '\u{1F1F2}\u{1F1FD}'
+const GermanyDE = '\u{1F1E9}\u{1F1EA}'
+const CanadaCA = '\u{1F1E8}\u{1F1E6}'
+const SlovakiaSK = '\u{1F1F8}\u{1F1F0}'
+const SloveniaSI = '\u{1F1F8}\u{1F1EE}'
+const PolandPL = '\u{1F1F5}\u{1F1F1}'
+const UkraineUA = '\u{1F1FA}\u{1F1E6}'
+const MaltaMT = '\u{1F1F2}\u{1F1F9}'
+const IndiaIN = '\u{1F1EE}\u{1F1F3}'
+const DenmarkDK = '\u{1F1E9}\u{1F1F0}'
+const AustriaAT = '\u{1F1E6}\u{1F1F9}'
+const UnitedKingdomUK = '\u{1F1EC}\u{1F1E7}'
+const RomaniaRO = '\u{1F1F7}\u{1F1F4}'
+const BulgariaBG = '\u{1F1E7}\u{1F1EC}'
+const PortugalPT = '\u{1F1F5}\u{1F1F9}'
+const JapanJP = '\u{1F1EF}\u{1F1F5}'
+const LatviaLV = '\u{1F1F1}\u{1F1FB}'
+const BelgiumBE = '\u{1F1E7}\u{1F1EA}'
+const LithuaniaLT = '\u{1F1F1}\u{1F1F9}'
+const EstoniaEE = '\u{1F1EA}\u{1F1EA}'
+const FinlandFI = '\u{1F1EB}\u{1F1EE}'
+const IsraelIL = '\u{1F1EE}\u{1F1F1}'
+const SerbiaRS = '\u{1F1F7}\u{1F1F8}'
+const GreeceGR = '\u{1F1EC}\u{1F1F7}'
+const HongKongSARChinaHK = '\u{1F1ED}\u{1F1F0}'
