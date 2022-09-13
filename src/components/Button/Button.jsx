@@ -2,29 +2,32 @@ import '../Button/Button.scss'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const Button = (props) => {
-  const { country, textarea, firstFlow, secondFlow, data,name } = props
+  const { country, textarea, firstFlow, secondFlow, data, name } = props
   const getAllText = () => {
+    var emoji = String.fromCodePoint(0x1f621)
     let text =
       `
-    Hey!${country}
-
+    Hey!
     ` +
       textarea.map(
         (el) => `
         ${el}`,
-        ) +
-    `
-
+      ) +
+      `
 
     ${firstFlow}` +
-    data.map((el) => `
+      data.map(
+        (el) =>
+          `
 
-    ${el.url}`+`
-    ${el.text}`)+
-    `
+    ${el.url}` +
+          `
+    ${el.text}`,
+      ) +
+      `
     
-    ${secondFlow}`+
-    `
+    ${secondFlow}` +
+      `
       
     Speak soon,
     ${name}
