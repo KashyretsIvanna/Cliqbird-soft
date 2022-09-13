@@ -5,10 +5,11 @@ import { nanoid } from 'nanoid'
 import Textarea from '../Textarea/Textarea'
 import Cases from '../Cases/Cases'
 import Button from '../Button/Button'
-import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
-polyfillCountryFlagEmojis();
+import { flag } from 'country-emoji'
+import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill'
+import { isElementOfType } from 'react-dom/test-utils'
+polyfillCountryFlagEmojis()
 const Display = () => {
-  const options_hey = ['Us', 'Ca', 'Au', 'NL']
   const [dataCases, setDataCases] = useState([])
   const [dataFlow, setDataFlow] = useState([])
   const [country, setCountry] = useState('')
@@ -18,6 +19,39 @@ const Display = () => {
   const [textarea, setTextarea] = useState([''])
   const [flowArray, setFlowArray] = useState([])
   const [isOpen, setIsOpen] = useState(true)
+  const obj = {
+    FR: '\u{1F1EB}\u{1F1F7}',
+    ES: '\u{1F1EA}\u{1F1F8}',
+    US: '\u{1F1FA}\u{1F1F8}',
+    CN: '\u{1F1E8}\u{1F1F3}',
+    IT: '\u{1F1EE}\u{1F1F9}',
+    MX: '\u{1F1F2}\u{1F1FD}',
+    DE: '\u{1F1E9}\u{1F1EA}',
+    CA: '\u{1F1E8}\u{1F1E6}',
+    SK: '\u{1F1F8}\u{1F1F0}',
+    SI: '\u{1F1F8}\u{1F1EE}',
+    PL: '\u{1F1F5}\u{1F1F1}',
+    UA: '\u{1F1FA}\u{1F1E6}',
+    MT: '\u{1F1F2}\u{1F1F9}',
+    IN: '\u{1F1EE}\u{1F1F3}',
+    DK: '\u{1F1E9}\u{1F1F0}',
+    AT: '\u{1F1E6}\u{1F1F9}',
+    UK: '\u{1F1EC}\u{1F1E7}',
+    RO: '\u{1F1F7}\u{1F1F4}',
+    BG: '\u{1F1E7}\u{1F1EC}',
+    PT: '\u{1F1F5}\u{1F1F9}',
+    JP: '\u{1F1EF}\u{1F1F5}',
+    LV: '\u{1F1F1}\u{1F1FB}',
+    BE: '\u{1F1E7}\u{1F1EA}',
+    LT: '\u{1F1F1}\u{1F1F9}',
+    EE: '\u{1F1EA}\u{1F1EA}',
+    FI: '\u{1F1EB}\u{1F1EE}',
+    IL: '\u{1F1EE}\u{1F1F1}',
+    RS: '\u{1F1F7}\u{1F1F8}',
+    GR: '\u{1F1EC}\u{1F1F7}',
+    HK: '\u{1F1ED}\u{1F1F0}',
+  }
+  const options_hey = Object.keys(obj)
 
   useEffect(() => {
     for (let i = 0; i < cases.length; i++) {
@@ -41,9 +75,6 @@ const Display = () => {
       .then((data) => setDataFlow(data))
   }, [])
 
-
-
-
   return (
     <>
       <div className="display">
@@ -63,29 +94,28 @@ const Display = () => {
               <div className="heyStart">Hey!</div>
               <button className="select_button" />
             </div>
-            {isOpen === true?
-             country.trim() !== '' && (
-              <ul className="option_container">
-                {options_hey
-                  .filter((el) =>
-                    el.toLowerCase().includes(country.toLowerCase()),
-                  )
-                  .map((el) => (
-                    <li
-                      onClick={() => {
-                        setIsOpen(false)
-                        setCountry(el)
-                      }}
-                      className="option"
-                      key={nanoid()}
-                    >
-                      {el}
-                    </li>
-                  ))}
-              </ul>
-            )
-          :null}
-           
+            {isOpen === true
+              ? country.trim() !== '' && (
+                  <ul className="option_container">
+                    {options_hey
+                      .filter((el) =>
+                        el.toLowerCase().includes(country.toLowerCase()),
+                      )
+                      .map((el) => (
+                        <li
+                          onClick={() => {
+                            setIsOpen(false)
+                            setCountry(flag(el))
+                          }}
+                          className="option"
+                          key={nanoid()}
+                        >
+                          {el}
+                        </li>
+                      ))}
+                  </ul>
+                )
+              : null}
           </div>
           {/* Text area */}
           {textarea.map((el, index) => (
@@ -117,37 +147,35 @@ const Display = () => {
                 placeholder="Standard flow based on customer"
                 type="text"
                 className="select_field"
-                onChange={(e) =>{
+                onChange={(e) => {
                   setFlow(e.target.value)
                   setIsOpen(true)
-                } }
+                }}
                 value={flow}
               />
             </div>
-            {isOpen === true?
-             flow.trim() !== '' && (
-              <ul className="option_container">
-                {dataFlow
-                  .filter((el) =>
-                    el.name.toLowerCase().includes(flow.toLowerCase()),
-                  )
-                  .map((el, index) => (
-                    <li
-                      onClick={() =>{
-                        setFlow(el.name)
-                        setIsOpen(false)
-                      }}
-                      className="option"
-                      key={nanoid()}
-                    >
-                      {index + 1}. {el.name}
-                    </li>
-                  ))}
-              </ul>
-            ):
-            null
-            }
-           
+            {isOpen === true
+              ? flow.trim() !== '' && (
+                  <ul className="option_container">
+                    {dataFlow
+                      .filter((el) =>
+                        el.name.toLowerCase().includes(flow.toLowerCase()),
+                      )
+                      .map((el, index) => (
+                        <li
+                          onClick={() => {
+                            setFlow(el.name)
+                            setIsOpen(false)
+                          }}
+                          className="option"
+                          key={nanoid()}
+                        >
+                          {index + 1}. {el.name}
+                        </li>
+                      ))}
+                  </ul>
+                )
+              : null}
           </div>
           {/* name */}
           <div className="part">
@@ -203,7 +231,7 @@ const Display = () => {
 export default Display
 
 const FranceFR = '\u{1F1EB}\u{1F1F7}'
-const SpainES =  '\u{1F1EA}\u{1F1F8}'
+const SpainES = '\u{1F1EA}\u{1F1F8}'
 const UnitedStatesUS = '\u{1F1FA}\u{1F1F8}'
 const ChinaCN = '\u{1F1E8}\u{1F1F3}'
 const ItalyIT = '\u{1F1EE}\u{1F1F9}'
