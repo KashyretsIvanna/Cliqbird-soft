@@ -2,9 +2,9 @@ import '../CoverLetter/Cover.scss'
 import { nanoid } from 'nanoid'
 
 const Cover = (props) => {
-  const { country, textarea, data, firstFlow, secondFlow ,name} = props
+  const { country, textarea, data, firstFlow, secondFlow, name } = props
   return (
-    <div className="cover" >
+    <div className="cover">
       <div className="hey">Hey!{country}</div>
       <br /> <br />
       {textarea.map((el) => (
@@ -18,13 +18,15 @@ const Cover = (props) => {
       <br />
       {data.map((el) => (
         <div key={nanoid()}>
-          <p>{el.text}</p><br />
-          <p className='url'>{el.url}</p> 
+          <p>{el.text}</p>
+          <br />
+          <p className="url">{el.url}</p>
           <br />
           <br />
         </div>
       ))}
-      <p>{secondFlow}</p><br/>
+      <p>{secondFlow}</p>
+      <br />
       <p>See soon,</p>
       <p>{name}</p>
     </div>
@@ -32,4 +34,3 @@ const Cover = (props) => {
 }
 
 export default Cover
-
