@@ -2,8 +2,8 @@
   background: #d9d9d9;
   border: 1px solid #000000;
   border-radius: 40px;
-  width: 60%;
-  height: 85%;
+  width: calc(100% - 50px);
+  height: 70%;
   font-family: 'Gabriela';
   font-style: normal;
   font-weight: 400;
@@ -12,15 +12,22 @@
   color: #000000;
   padding: 30px;
   margin-right: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   overflow: auto;
   word-break: break-all;
 }
 
-.cover::-webkit-scrollbar{
+.cover::-webkit-scrollbar {
   scroll-snap-type: none;
 }
 
 .url {
   color: blue;
+}
+@media screen and (max-width: 850px) {
+  .cover{
+    // margin-right: 0px;
+    margin: 10px auto;
+    width: 80%;
+  }
 }
