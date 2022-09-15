@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .DisplayQuestion {
   max-width: 1040px;
@@ -12,6 +12,10 @@
   align-items: flex-start;
   border: 5px solid black;
   flex-wrap: wrap;
+}
+
+.DisplayQuestion::-webkit-scrollbar {
+  display: none;
 }
 
 .question-search {
@@ -185,7 +189,7 @@
     max-width: 1040px;
     min-height: 650px;
     background-color: #858585;
-    margin: 60px auto;
+    margin: 60px 0px;
     border-radius: 24px;
     padding: 40px;
     display: flex;
