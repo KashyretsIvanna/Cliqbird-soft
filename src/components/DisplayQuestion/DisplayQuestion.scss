@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .DisplayQuestion {
   // max-width: 900px;
@@ -14,6 +14,10 @@
   flex-wrap: wrap;
   max-width: calc(100% - 100px);
   max-height: calc(90vh - 123px);
+}
+
+.DisplayQuestion::-webkit-scrollbar {
+  display: none;
 }
 
 .question-search {
@@ -183,12 +187,14 @@
   }
 
   .DisplayQuestion {
+
     // max-width: 1040px;
     // max-width: calc(100% - 100px);
 
     // min-height: 650px;
 
     margin: 60px auto;
+
     border-radius: 24px;
     // padding: 40px;
     display: flex;

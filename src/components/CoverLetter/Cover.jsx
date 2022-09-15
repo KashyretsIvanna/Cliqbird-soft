@@ -1,5 +1,7 @@
 import '../CoverLetter/Cover.scss'
 import { nanoid } from 'nanoid'
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+polyfillCountryFlagEmojis();
 
 const Cover = (props) => {
   const { country, textarea, data, firstFlow, secondFlow, name } = props
