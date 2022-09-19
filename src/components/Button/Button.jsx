@@ -2,33 +2,33 @@ import '../Button/Button.scss'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const Button = (props) => {
-  const { country, textarea, firstFlow, secondFlow, data,name } = props
+  const { country, textarea, firstFlow, secondFlow, data, name } = props
   const getAllText = () => {
     let text =
       `
-    Hey!${country}
+        Hey!${country}
 
-    ` +
+`
+      +
       textarea.map(
-        (el) => `
-        ${el}`,
-        ) +
-    `
+        (el) => `${el}
+        
+`) +
+      +
+      `${firstFlow}
 
+` +
+      data.map((el) => `${el.text}
 
-    ${firstFlow}` +
-    data.map((el) => `
+` + `${el.url}
 
-    ${el.text}`+`
-    ${el.url}`)+
-    `
-    
-    ${secondFlow}`+
-    `
-      
-    Speak soon,
-    ${name}
-    `
+`) +
+      `${secondFlow}
+
+` +
+      `Speak soon,${name}
+
+`
 
     return text
   }
@@ -43,3 +43,6 @@ const Button = (props) => {
 }
 
 export default Button
+
+
+
