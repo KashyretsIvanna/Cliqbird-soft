@@ -54,6 +54,7 @@ const Display = () => {
   const options_hey = Object.keys(obj)
 
   useEffect(() => {
+
     for (let i = 0; i < cases.length; i++) {
       setFlowArray((state) => [
         ...state.slice(0, i),
@@ -112,6 +113,7 @@ const Display = () => {
                         >
                           {el}
                         </li>
+                        
                       ))}
                   </ul>
                 )
@@ -263,3 +265,7 @@ const IsraelIL = '\u{1F1EE}\u{1F1F1}'
 const SerbiaRS = '\u{1F1F7}\u{1F1F8}'
 const GreeceGR = '\u{1F1EC}\u{1F1F7}'
 const HongKongSARChinaHK = '\u{1F1ED}\u{1F1F0}'
+
+
+
+
