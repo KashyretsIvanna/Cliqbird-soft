@@ -24,6 +24,12 @@
 .url {
   color: blue;
 }
+
+p {
+  text-indent: none;
+  margin: 0;
+}
+
 @media screen and (max-width: 850px) {
   .cover{
     // margin-right: 0px;
