@@ -6,9 +6,10 @@ import { useState, useEffect } from 'react'
 export default function DisplayQuestion() {
   const [data, setData] = useState([])
   const [ques, setQues] = useState('')
-  const [filterData, setFilterData] = useState([])
+  const [filterData, setFilterData] = useState([{}])
   const [isWright, setIsWright] = useState(false)
   const [choice, setChoice] = useState('')
+  
 
   useEffect(() => {
     fetch('../../../question.json')
@@ -20,7 +21,7 @@ export default function DisplayQuestion() {
 
   useEffect(() => {
     const array = data.filter((e) => {
-      return e.toLowerCase().includes(ques.toLowerCase())
+      return (e.question.toLowerCase()).includes(ques.toLowerCase())
     })
     setFilterData(array)
   }, [ques])
@@ -57,7 +58,18 @@ export default function DisplayQuestion() {
         {isWright === true ? (
           <div className="question-list">
             <ul>
-              {filterData.map((e) => {return (<li onClick={()=>{ setChoice(e)}}>{e}</li>)})}
+              {filterData.map((e) => {
+                return (
+                  <li
+                  key={e.answer}
+                    onClick={() => {
+                      setChoice(e.answer)
+                    }}
+                  >
+                    {e.question}
+                  </li>
+                )
+              })}
             </ul>
           </div>
         ) : null}
@@ -65,9 +77,13 @@ export default function DisplayQuestion() {
       <div className="right-side-container">
         {/* window + button */}
         <div className="question-window">{choice}</div>
-        <div className="button-container" onClick={(event)=>{navigator.clipboard.writeText(choice)}}>
-
-          <div className="button-text">COPY TEXT</div>
+        <div
+          className="button-container"
+          onClick={(event) => {
+            navigator.clipboard.writeText(choice)
+          }}
+        >
+          <div className="button-text">COPY TEXT</div>  
         </div>
       </div>
     </div>

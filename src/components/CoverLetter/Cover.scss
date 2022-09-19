@@ -14,9 +14,13 @@
   margin-right: 50px;
   margin-bottom: 100px;
   overflow: auto;
+  word-break: break-all;
 }
 
 .cover::-webkit-scrollbar{
-  width: 2px;
-  background-color: gray;
+  scroll-snap-type: none;
+}
+
+.url {
+  color: blue;
 }

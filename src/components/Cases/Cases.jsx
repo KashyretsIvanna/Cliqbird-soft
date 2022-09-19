@@ -1,16 +1,7 @@
 import { nanoid } from 'nanoid'
 import '../Cases/Cases.jsx'
 const Cases = (props) => {
-  const { cases, setCase, index } = props
-  const options_cases = [
-    '1.Digital M.',
-    '2.Ecommrse',
-    '3.SasS(Jenna)',
-    '4.SasS(Adapty)',
-    '5.Web Design',
-  ]
-
-  
+  const { cases, setCase, index, dataCases,isOpen,setIsOpen } = props
 
   const caseHandler = (e) => {
     setCase((state) => [
@@ -18,48 +9,58 @@ const Cases = (props) => {
       e.target.value,
       ...state.slice(index + 1, state.length),
     ])
-    console.log(index)
   }
+
   return (
     <div className="part">
       <div className="select">
         <input
-          onChange={(e) => caseHandler(e)}
+          onChange={(e) => {
+            caseHandler(e)
+            setIsOpen(true)
+          }}
           placeholder="Company cases"
           type="text"
           className="select_field"
-          // onChange={(e) => setCase(e.target.value)}
           value={cases[index]}
         />
         <button className="select_button" />
-        <button
-          onClick={() => setCase((state) => [...state, ''])}
-          className="cross"
-        ></button>
+        {index === 0 && (
+          <button
+            onClick={() => {
+              setCase((state) => [...state, ''])
+            }}
+            className="cross"
+          ></button>
+        )}
       </div>
-      {cases[index].trim() !== '' && (
+      {isOpen === true?
+       cases[index].trim() !== '' && (
         <ul className="option_container">
-          {options_cases
+          {dataCases
             .filter((el) =>
-              el.toLowerCase().includes(cases[index].toLowerCase()),
+              el.name.toLowerCase().includes(cases[index].toLowerCase()),
             )
-            .map((el) => (
+            .map((el, ind) => (
               <li
                 onClick={() =>
-                  setCase((state) => [
+                  {setIsOpen(false)
+                    setCase((state) => [
                     ...state.slice(0, index),
-                    el,
+                    el.name,
                     ...state.slice(index + 1, state.length),
-                  ])
+                  ])}
                 }
                 className="option"
-                key={() => nanoid()}
+                key={nanoid()}
               >
-                {el}
+                {ind + 1}. {el.name}
               </li>
             ))}
         </ul>
-      )}
+      )
+      :null
+    }
     </div>
   )
 }
