@@ -8,7 +8,7 @@ const Cover = (props) => {
   return (
     <div className="cover">
       <div className="hey">Hey!{country}</div>
-      <br /> <br />
+      <br />
       {textarea.map((el) => (
         <div key={nanoid()} className="textarea">
           {el}
