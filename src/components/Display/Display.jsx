@@ -190,6 +190,8 @@ const Display = () => {
             </div>
           </div>
         </div>
+        <div className='right'>
+
 
         <Cover
           textarea={textarea}
@@ -223,6 +225,7 @@ const Display = () => {
           name={name}
           country={country}
         />
+      </div>
       </div>
     </>
   )
