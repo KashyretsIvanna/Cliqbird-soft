@@ -216,12 +216,12 @@ const Display = () => {
           firstFlow={
             [...dataFlow].filter((el) => el.name === flow)[0]
               ? [...dataFlow].filter((el) => el.name === flow)[0].firstArt
-              : null
+              : ""
           }
           secondFlow={
             [...dataFlow].filter((el) => el.name === flow)[0]
               ? [...dataFlow].filter((el) => el.name === flow)[0].secondArt
-              : null
+              : ""
           }
           data={flowArray}
           name={name}

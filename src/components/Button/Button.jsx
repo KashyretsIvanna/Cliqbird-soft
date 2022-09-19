@@ -14,7 +14,6 @@ const Button = (props) => {
         (el) => `${el}
         
 `) +
-      +
       `${firstFlow}
 
 ` +
@@ -26,9 +25,8 @@ const Button = (props) => {
       `${secondFlow}
 
 ` +
-      `Speak soon,${name}
-
-`
+      `Speak soon,
+`+ `${name}`
 
     return text
   }
