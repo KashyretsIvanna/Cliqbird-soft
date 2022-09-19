@@ -97,7 +97,9 @@
 }
 
 .option {
-  height: 20px;
+  min-height: 20px;
+  height: auto;
+  // height: 20px;
   background-color: #ccee45;
 }
 
