@@ -3,28 +3,28 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const Button = (props) => {
   const { country, textarea, firstFlow, secondFlow, data, name } = props
+  let flow1 = firstFlow !== "" ? `${firstFlow}
+
+`: ""
+  let flow2 = secondFlow !== "" ? `${secondFlow}
+  
+`: ""
+
   const getAllText = () => {
     let text =
-      `
-        Hey!${country}
+      `Hey!${country}
 
-`
-      +
-      textarea.map(
-        (el) => `${el}
-        
-`) +
-      `${firstFlow}
+`+ textarea.map(
+        (el) =>el!==""? `${el} 
 
-` +
+`:"")
+      + flow1 +
       data.map((el) => `${el.text}
 
 ` + `${el.url}
 
-`) +
-      `${secondFlow}
-
-` +
+`)
+      + flow2 +
       `Speak soon,
 `+ `${name}`
 
@@ -41,6 +41,3 @@ const Button = (props) => {
 }
 
 export default Button
-
-
-

@@ -12,12 +12,11 @@ const Cover = (props) => {
       {textarea.map((el) => (
         <div key={nanoid()} className="textarea">
           {el}
-          <br /> <br />
+          {el !== "" && <><br /> <br /></>}
         </div>
       ))}
       <p>{firstFlow}</p>
-      <br />
-      <br />
+      {firstFlow && <><br /><br /></>}
       {data.map((el) => (
         <div key={nanoid()}>
           <p>{el.text}</p>
@@ -28,7 +27,7 @@ const Cover = (props) => {
         </div>
       ))}
       <p>{secondFlow}</p>
-      <br />
+      {secondFlow&&<br />}
       <p>See soon,</p>
       <p>{name}</p>
     </div>
