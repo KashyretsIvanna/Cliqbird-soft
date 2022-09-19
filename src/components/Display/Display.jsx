@@ -214,13 +214,13 @@ const Display = () => {
         <Button
           textarea={textarea}
           firstFlow={
-            [...dataFlow].filter((el) => el.name === flow)[0]
-              ? [...dataFlow].filter((el) => el.name === flow)[0].firstArt
+            [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
+              ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].firstArt
               : ""
           }
           secondFlow={
-            [...dataFlow].filter((el) => el.name === flow)[0]
-              ? [...dataFlow].filter((el) => el.name === flow)[0].secondArt
+            [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
+              ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].secondArt
               : ""
           }
           data={flowArray}
