@@ -50,6 +50,7 @@ const Display = () => {
     RS: '\u{1F1F7}\u{1F1F8}',
     GR: '\u{1F1EC}\u{1F1F7}',
     HK: '\u{1F1ED}\u{1F1F0}',
+    NL: '\u{1F1F3}\u{1F1F1}'
   }
   const options_hey = Object.keys(obj)
 

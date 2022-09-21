@@ -1,10 +1,9 @@
  @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 .DisplayQuestion {
-  // max-width: 900px;
-  // height: 40vh;
+  max-width: 900px;
   background-color: #858585;
-  margin: 60px auto;
+  margin: 30px auto;
   border-radius: 24px;
   padding: 40px;
   display: flex;
@@ -12,8 +11,6 @@
   align-items: flex-start;
   border: 5px solid black;
   flex-wrap: wrap;
-  max-width: calc(100% - 100px);
-  max-height: calc(90vh - 123px);
 }
 
 .DisplayQuestion::-webkit-scrollbar {
@@ -153,7 +150,6 @@
   }
 
   .DisplayQuestion {
-    height: calc(80vh - 176px);
     margin-top: 0px;
 
     display: flex;
