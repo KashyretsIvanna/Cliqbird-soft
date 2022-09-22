@@ -17,8 +17,22 @@ const Display = () => {
   const [flow, setFlow] = useState('')
   const [name, setName] = useState('')
   const [textarea, setTextarea] = useState([''])
+  const firstFlow =
+    [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
+      ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].firstArt
+      : ""
+
+  const secondFlow =
+    [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
+      ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].secondArt
+      : ""
+
   const [flowArray, setFlowArray] = useState([])
   const [isOpen, setIsOpen] = useState(true)
+  const [ChangeFirst, setChangeFirst] = useState(firstFlow)
+  const [ChangeSecond, setChangeSecond] = useState(secondFlow)
+  const [changeData, setChangeData] = useState(flowArray)
+
   const obj = {
     FR: '\u{1F1EB}\u{1F1F7}',
     ES: '\u{1F1EA}\u{1F1F8}',
@@ -98,26 +112,26 @@ const Display = () => {
             </div>
             {isOpen === true
               ? country.trim() !== '' && (
-                  <ul className="option_container">
-                    {options_hey
-                      .filter((el) =>
-                        el.toLowerCase().includes(country.toLowerCase()),
-                      )
-                      .map((el) => (
-                        <li
-                          onClick={() => {
-                            setIsOpen(false)
-                            setCountry(flag(el))
-                          }}
-                          className="option"
-                          key={nanoid()}
-                        >
-                          {el}
-                        </li>
-                        
-                      ))}
-                  </ul>
-                )
+                <ul className="option_container">
+                  {options_hey
+                    .filter((el) =>
+                      el.toLowerCase().includes(country.toLowerCase()),
+                    )
+                    .map((el) => (
+                      <li
+                        onClick={() => {
+                          setIsOpen(false)
+                          setCountry(flag(el))
+                        }}
+                        className="option"
+                        key={nanoid()}
+                      >
+                        {el}
+                      </li>
+
+                    ))}
+                </ul>
+              )
               : null}
           </div>
           {/* Text area */}
@@ -132,6 +146,7 @@ const Display = () => {
           {/* Cases */}
           {cases.map((el, index) => (
             <Cases
+            changeData={changeData}
               key={index}
               index={index}
               dataCases={dataCases}
@@ -159,25 +174,25 @@ const Display = () => {
             </div>
             {isOpen === true
               ? flow.trim() !== '' && (
-                  <ul className="option_container">
-                    {dataFlow
-                      .filter((el) =>
-                        el.name.toLowerCase().includes(flow.toLowerCase()),
-                      )
-                      .map((el, index) => (
-                        <li
-                          onClick={() => {
-                            setFlow(el.name)
-                            setIsOpen(false)
-                          }}
-                          className="option"
-                          key={nanoid()}
-                        >
-                          {index + 1}. {el.name}
-                        </li>
-                      ))}
-                  </ul>
-                )
+                <ul className="option_container">
+                  {dataFlow
+                    .filter((el) =>
+                      el.name.toLowerCase().includes(flow.toLowerCase()),
+                    )
+                    .map((el, index) => (
+                      <li
+                        onClick={() => {
+                          setFlow(el.name)
+                          setIsOpen(false)
+                        }}
+                        className="option"
+                        key={nanoid()}
+                      >
+                        {index + 1}. {el.name}
+                      </li>
+                    ))}
+                </ul>
+              )
               : null}
           </div>
           {/* name */}
@@ -196,39 +211,42 @@ const Display = () => {
         <div className='right'>
 
 
-        <Cover
-          textarea={textarea}
-          firstFlow={
-            [...dataFlow].filter((el) => el.name === flow)[0]
-              ? [...dataFlow].filter((el) => el.name === flow)[0].firstArt
-              : null
-          }
-          secondFlow={
-            [...dataFlow].filter((el) => el.name === flow)[0]
-              ? [...dataFlow].filter((el) => el.name === flow)[0].secondArt
-              : null
-          }
-          data={flowArray}
-          country={country}
-          name={name}
-        />
-        <Button
-          textarea={textarea}
-          firstFlow={
-            [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
-              ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].firstArt
-              : ""
-          }
-          secondFlow={
-            [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0]
-              ? [...dataFlow].filter((el) => el.name.toLowerCase() === flow.toLowerCase())[0].secondArt
-              : ""
-          }
-          data={flowArray}
-          name={name}
-          country={country}
-        />
-      </div>
+          <Cover
+            changeData={changeData}
+            setChangeData={setChangeData}
+            textarea={textarea}
+            firstFlow={
+              firstFlow
+            }
+            secondFlow={
+              secondFlow
+            }
+            data={flowArray}
+            country={country}
+            name={name}
+            setDataFlow={setDataFlow}
+            setFlowArray={setFlowArray}
+            ChangeFirst={ChangeFirst}
+            ChangeSecond={ChangeSecond}
+            setChangeFirst={setChangeFirst}
+            setChangeSecond={setChangeSecond}
+
+
+          />
+          <Button
+            changeData={changeData}
+            textarea={textarea}
+            firstFlow={
+              ChangeFirst
+            }
+            secondFlow={
+              ChangeSecond
+            }
+            // data={flowArray}
+            name={name}
+            country={country}
+          />
+        </div>
       </div>
     </>
   )
