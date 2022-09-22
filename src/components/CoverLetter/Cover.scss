@@ -29,6 +29,12 @@ p {
   text-indent: none;
   margin: 0;
 }
+input{
+  width: 100%;
+  height: auto;
+  background-color: rgba(250, 235, 215, 0);
+  border: none;
+}
 
 @media screen and (max-width: 850px) {
   .cover{

@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import '../Cases/Cases.jsx'
 const Cases = (props) => {
-  const { cases, setCase, index, dataCases,isOpen,setIsOpen } = props
+  const { cases, setCase, index, dataCases, isOpen, setIsOpen, changeData } = props
 
   const caseHandler = (e) => {
     setCase((state) => [
@@ -34,33 +34,34 @@ const Cases = (props) => {
           ></button>
         )}
       </div>
-      {isOpen === true?
-       cases[index].trim() !== '' && (
-        <ul className="option_container">
-          {dataCases
-            .filter((el) =>
-              el.name.toLowerCase().includes(cases[index].toLowerCase()),
-            )
-            .map((el, ind) => (
-              <li
-                onClick={() =>
-                  {setIsOpen(false)
+      {isOpen === true ?
+        cases[index].trim() !== '' && (
+          <ul className="option_container">
+            {dataCases
+              .filter((el) =>
+                el.name.toLowerCase().includes(cases[index].toLowerCase()),
+              ).filter(el => changeData.filter(ch => ch.id === el.id).length === 0)
+              .map((el, ind) => (
+                <li
+                  onClick={() => {
+                    setIsOpen(false)
                     setCase((state) => [
-                    ...state.slice(0, index),
-                    el.name,
-                    ...state.slice(index + 1, state.length),
-                  ])}
-                }
-                className="option"
-                key={nanoid()}
-              >
-                {ind + 1}. {el.name}
-              </li>
-            ))}
-        </ul>
-      )
-      :null
-    }
+                      ...state.slice(0, index),
+                      el.name,
+                      ...state.slice(index + 1, state.length),
+                    ])
+                  }
+                  }
+                  className="option"
+                  key={nanoid()}
+                >
+                  {ind + 1}. {el.name}
+                </li>
+              ))}
+          </ul>
+        )
+        : null
+      }
     </div>
   )
 }

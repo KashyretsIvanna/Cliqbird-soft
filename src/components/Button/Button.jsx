@@ -2,7 +2,7 @@ import '../Button/Button.scss'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const Button = (props) => {
-  const { country, textarea, firstFlow, secondFlow, data, name } = props
+  const { country, textarea, firstFlow, secondFlow, changeData, name } = props
   let flow1 = firstFlow !== "" ? `${firstFlow}
 
 `: ""
@@ -15,11 +15,11 @@ const Button = (props) => {
       `Hey!${country}
 
 `+ textarea.map(
-        (el) =>el!==""? `${el} 
+        (el) => el !== "" ? `${el} 
 
-`:"")
+`: "")
       + flow1 +
-      data.map((el) => `${el.text}
+      changeData.map((el) => `${el.text}
 
 ` + `${el.url}
 
