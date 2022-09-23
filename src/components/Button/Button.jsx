@@ -4,26 +4,34 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 const Button = (props) => {
   const { country, textarea, firstFlow, secondFlow, changeData, name } = props
   let flow1 = firstFlow !== "" ? `${firstFlow}
+  
+  
 
 `: ""
   let flow2 = secondFlow !== "" ? `${secondFlow}
   
 `: ""
 
+  const cases = `${changeData.map((el) => `${el.text}
+
+` + `${el.url}
+`).join('')
+    }`
+
+  const textareaString = textarea.map(
+    (el) => el !== "" ? `${el} 
+
+`: "").join("")
+
+
+
   const getAllText = () => {
     let text =
       `Hey!${country}
 
-`+ textarea.map(
-        (el) => el !== "" ? `${el} 
-
-`: "")
+`+ textareaString
       + flow1 +
-      changeData.map((el) => `${el.text}
-
-` + `${el.url}
-
-`)
+      cases
       + flow2 +
       `Speak soon,
 `+ `${name}`
