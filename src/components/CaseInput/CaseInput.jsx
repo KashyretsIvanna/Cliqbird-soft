@@ -9,16 +9,16 @@ const CaseInput = ({ handleChangeText, handleChangeUrl, el, changeData }) => {
     
     return (
         <div >
-            <input value={text} onChange={(e) => {
+            <div contentEditable="true" onChange={(e) => {
                 handleChangeText(e.target.value, el.name, el.url, el.text, el.id)
                 setText(e.target.value)
 
-            }} ></input>
+            }} >{text}</div>
             <br />
-            <input value={url} onChange={(e) => {
+            <div contentEditable="true" onChange={(e) => {
                 handleChangeUrl(e.target.value, el.name, el.url, el.text, el.id)
                 setUrl(e.target.value)
-            }} className="url"></input>
+            }} className="url">{url}</div>
             <br />
             <br />
         </div>

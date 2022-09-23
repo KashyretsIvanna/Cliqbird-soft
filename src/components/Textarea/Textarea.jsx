@@ -6,7 +6,6 @@ const Textarea = (props) => {
       e.target.value,
       ...state.slice(index + 1, state.length),
     ])
-    console.log(index)
   }
 
   return (

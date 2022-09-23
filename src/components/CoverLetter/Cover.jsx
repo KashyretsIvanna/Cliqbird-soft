@@ -52,14 +52,15 @@ const Cover = (props) => {
           {el !== "" && <><br /><br /></>}
         </div>
       ))}
-      <input value={ChangeFirst} onChange={(e) => { setChangeFirst(e.target.value) }}></input>
+      <div contentEditable="true" className="textar" onChange={(e) => { setChangeFirst(e.target.value) }}>{ChangeFirst}</div>
       {firstFlow && <><br /><br /></>}
       {changeData.map((el) => (
         <CaseInput changeData={changeData} key={nanoid()} handleChangeText={handleChangeText} handleChangeUrl={handleChangeUrl} el={el} />
 
 
       ))}
-      <input value={ChangeSecond} onChange={(e) => { setChangeSecond(e.target.value) }}></input>
+      
+      <div contentEditable="true" className="textar" onChange={(e) => { setChangeSecond(e.target.value) }}>{ChangeSecond}</div>
       {secondFlow && <br />}
       <p>See soon,</p>
       <p>{name}</p>
