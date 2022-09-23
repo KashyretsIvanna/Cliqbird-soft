@@ -146,7 +146,7 @@ const Display = () => {
           {/* Cases */}
           {cases.map((el, index) => (
             <Cases
-            changeData={changeData}
+              changeData={changeData}
               key={index}
               index={index}
               dataCases={dataCases}
