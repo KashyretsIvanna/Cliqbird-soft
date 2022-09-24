@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Cliqbird-soft/static/css/main.1a879af1.css",
+    "main.js": "/Cliqbird-soft/static/js/main.8ce65859.js",
+    "static/media/backgraund.jpg": "/Cliqbird-soft/static/media/backgraund.22ad7c56d44b6318fc87.jpg",
+    "static/media/red-cross-svgrepo-com.svg": "/Cliqbird-soft/static/media/red-cross-svgrepo-com.e18607031bfc029548d6.svg",
+    "index.html": "/Cliqbird-soft/index.html",
+    "static/media/logo-search.svg": "/Cliqbird-soft/static/media/logo-search.eb18ba5478a9796f5e37f0b89bf904cd.svg",
+    "main.1a879af1.css.map": "/Cliqbird-soft/static/css/main.1a879af1.css.map",
+    "main.8ce65859.js.map": "/Cliqbird-soft/static/js/main.8ce65859.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a879af1.css",
+    "static/js/main.8ce65859.js"
+  ]
+}
