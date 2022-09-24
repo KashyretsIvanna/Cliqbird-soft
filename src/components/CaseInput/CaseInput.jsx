@@ -1,6 +1,4 @@
-import { useEffect } from "react"
 import { useState } from "react"
-import { useRef } from "react"
 
 const CaseInput = ({ handleChangeText, handleChangeUrl, el, changeData }) => {
 

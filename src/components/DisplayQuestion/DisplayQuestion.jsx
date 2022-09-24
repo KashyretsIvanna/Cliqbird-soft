@@ -24,7 +24,7 @@ export default function DisplayQuestion() {
       return (e.question.toLowerCase()).includes(ques.toLowerCase())
     })
     setFilterData(array)
-  }, [ques])
+  }, [ques,data])
 
   useEffect(() => {
     if (filterData.length > 0) {
@@ -34,7 +34,7 @@ export default function DisplayQuestion() {
     if (ques === '') {
       setIsWright(false)
     }
-  })
+  },[filterData,ques])
 
   const searchButton = () => {
     setFilterData(data)

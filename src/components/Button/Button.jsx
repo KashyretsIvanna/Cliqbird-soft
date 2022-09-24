@@ -14,7 +14,8 @@ const Button = (props) => {
 
   const cases = `${changeData.map((el) => `${el.text}
 
-` + `${el.url}
+` + 
+`${el.url}
 `).join('')
     }`
 
@@ -34,7 +35,8 @@ const Button = (props) => {
       cases
       + flow2 +
       `Speak soon,
-`+ `${name}`
+`+ 
+`${name}`
 
     return text
   }

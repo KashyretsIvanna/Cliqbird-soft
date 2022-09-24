@@ -2,7 +2,6 @@ import '../CoverLetter/Cover.scss'
 import { nanoid } from 'nanoid'
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 import { useEffect } from 'react';
-import { useState } from 'react';
 import CaseInput from "../CaseInput/CaseInput"
 polyfillCountryFlagEmojis();
 
@@ -15,11 +14,11 @@ const Cover = (props) => {
   useEffect(() => {
     setChangeFirst(firstFlow)
     setChangeSecond(secondFlow)
-  }, [firstFlow, secondFlow])
+  }, [firstFlow, secondFlow,setChangeFirst,setChangeSecond])
   useEffect(() => {
     setChangeData(data)
 
-  }, [data])
+  }, [data,setChangeData])
 
   const handleChangeText = (value, name, url, text, id) => {
     let filter = changeData.filter(el => el.id === id)[0]
